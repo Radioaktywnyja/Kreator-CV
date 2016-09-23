@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CV Kreator</title>
+	<meta name="Description" content="Prosty i darmowy kreator CV.">
+	<meta name="Keywords" content="CV, Kreator, Wzór">
+	<link rel="stylesheet" type="text/css" href="pliki/style.css">
+	<script src="pliki/jq.js" type="text/javascript"></script>
+	<script src="pliki/skrypty.js" type="text/javascript"></script>
+</head>
+<body>
+	<form action="insert.php" method="POST">
+		<div id="kontener">
+			<div id="osobie">
+				<span class="osobie_nazwisko">
+					<input type="text" name="nazwisko" placeholder="Imię i Nazwisko" />
+					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+				</span>
+				<span class="osobie_zawod">
+					<input type="text" name="zawod" placeholder="Zawód" />
+					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+				</span>
+				<span class="osobie_cele">
+					<textarea name="sciezka" placeholder="Kilka zdań o sobie i o planowanej ścieżce zawodowej"></textarea>
+					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+				</span>
+				
+			</div>
+			<div id="kolumna_lewa">
+				<div class="element doswiadczenie">
+					<div class="element_tytul">
+						<span>Doświadczenie</span>
+						<button type="button" class="praca_dodaj">Dodaj kolejne</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>
+					<div class="dosw_praca0">
+						<div class="dosw_okres">
+							<span class="dosw_odkiedy"><input class="okres" type="text" name="praca_od[0]" placeholder="od kiedy" /></span>
+							<span> - </span>
+							<span class="dosw_dokiedy"><input class="okres" type="text" name="praca_do[0]" placeholder="do kiedy" /></span>
+						</div>
+						<div class="dosw_opis">
+							<div class="dosw_posada">
+								<span class="dosw_pracodawca"><input type="text" name="pracodawca[0]" placeholder="Pracodawca" /></span>
+								<span> - </span>
+								<span class="dosw_stanowisko"><input type="text" name="stanowisko[0]" placeholder="Stanowisko" /></span>
+							</div>
+							<div class="dosw_zakrespracy">
+								<span class="dosw_zakrespracy_tytul">Obowiązki:</span>
+								<span class="dosw_obowiazki">
+									<input type="text" name="obowiazki[0]" placeholder="Zakres obowiązków na tym stanowisku" />
+								</span>
+								<span class="dosw_zakrespracy_tytul">Osiągnięcia:</span>
+								<span class="dosw_osiagniecia">
+									<input type="text" name="osiagniecia[0]" placeholder="Największe osiągnięcia na tym stanowisku" />
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="element projekty">
+					<div class="element_tytul">
+						<span>Projekty</span>
+						<button type="button" class="projekt_dodaj">Dodaj kolejny</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>
+					<div class="proj">
+						<ul>
+							<li class="projekt0">
+								<span class="proj_adres"><input type="text" name="proj_adres[0]" placeholder="Nazwa projektu lub adres www" /></span>
+								<span class="proj_opis"><input type="text" name="proj_opis[0]" placeholder="Kilka zdań na temat projektu" /></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="element umiejetnosci">
+					<div class="element_tytul">
+						<span>Umiejętności</span>
+						<button type="button" class="umiej_dodaj">Dodaj kolejną</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>
+					<div class="umiej">
+						<ul>
+							<li class="umiej0">
+								<span class="umiej_nazwa"><input type="text" name="umiej_nazwa[0]" placeholder="Umiejętność" /></span>
+								<span class="umiej_poziom">
+									<input type="radio" name="umiej_poziom[0]" value="1" checked="checked" />1
+									<input type="radio" name="umiej_poziom[0]" value="2" />2
+									<input type="radio" name="umiej_poziom[0]" value="3" />3
+									<input type="radio" name="umiej_poziom[0]" value="4" />4
+									<input type="radio" name="umiej_poziom[0]" value="5" />5
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="element kursy">
+					<div class="element_tytul">
+						<span>Kursy</span>
+						<button type="button" class="kurs_dodaj">Dodaj kolejny</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>
+					<div class="kurs">
+						<ul>
+							<li class="kurs0">
+								<input type="text" name="kurs[0]" placeholder="Nazwa kursu" />
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="element edukacja">
+					<div class="element_tytul">
+						<span>Edukacja</span>
+						<button type="button" class="edu_dodaj">Dodaj kolejną</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>
+					<div class="edu_szkola0">
+						<div class="edu_okres">
+							<span class="edu_odkiedy"><input class="okres" type="text" name="edu_od[0]" placeholder="od kiedy" /></span>
+							<span> - </span>
+							<span class="edu_dokiedy"><input class="okres" type="text" name="edu_do[0]" placeholder="do kiedy" /></span>
+						</div>
+						<div class="edu_opis">
+							<div class="edu_miejsce">
+								<span class="edu_uczelnia"><input type="text" name="edu_uczelnia[0]" placeholder="Nazwa uczelni" /></span>
+								<span class="edu_kierunek"><input type="text" name="edu_kierunek[0]" placeholder="Kierunek" /></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="kolumna_prawa">
+				<div class="element personalne">
+					<div class="element_tytul">
+						<span>Personalia</span>
+					</div>
+					<div class="person_dane">
+						<span class="person_tytul">Data urodzenia:</span>
+						<span class="person_urodziny">
+							<input type="text" name="urodziny" placeholder="DD.MM.RRRR" />
+							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+						</span>
+						<span class="person_tytul">Obywatelstwo:</span>
+						<span class="person_obywatelstwo">
+							<input type="text" name="obywatelstwo" placeholder="Polskie" />
+							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+						</span>
+						<span class="person_tytul">Adres:</span>
+						<span class="person_adres">
+							<input type="text" name="ulica" placeholder="Ulica nr" />
+							<input type="text" name="miasto" placeholder="XX-XXX Miejscowość" />
+							<input type="text" name="kraj" placeholder="Kraj" />
+							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+						</span>
+						<span class="person_tytul">Telefon:</span>
+						<span class="person_telefon">
+							<input type="text" name="telefon" placeholder="Nr telefonu" />
+							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+						</span>
+						<span class="person_tytul">E-mail:</span>
+						<span class="email">
+							<input type="text" name="mail" placeholder="Adres e-mail" />
+							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+						</span>
+						<span class="person_tytul">WWW:</span>
+						<span class="person_www">
+							<input type="text" name="strona" placeholder="Strona WWW" />
+							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+						</span>
+					</div>
+				</div>
+				<div class="element jezyki">
+					<div class="element_tytul">
+						<span>Języki</span>
+						<button type="button" class="jezyk_dodaj">Dodaj kolejny</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>	
+					<div class="jezyk0">
+						<span class="jezyk_tytul"><input type="text" name="jezyk_tytul[0]" placeholder="Język" /></span>
+						<span class="jezyk_poziom"><input type="text" name="jezyk_poziom[0]" placeholder="Poziom" /></span>
+					</div>
+				</div>
+				<div class="element portale">
+					<div class="element_tytul">
+						<span>Portale społecznościowe</span>
+						<button type="button" class="portal_dodaj">Dodaj kolejny</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>	
+					<div class="portal0">
+						<span class="portal_tytul"><input type="text" name="portal_tytul[0]" placeholder="Nazwa portalu" /></span>
+						<span class="portal_adres"><input type="text" name="portal_adres[0]" placeholder="Adress www do profilu" /></span>
+					</div>
+				</div>
+				<div class="element zainteresowania">
+					<div class="element_tytul">
+						<span>Zainteresowania</span>
+						<button type="button" class="interes_dodaj">Dodaj kolejne</button>
+						<button type="button" class="usun_element" status="u">Usuń element</button>
+					</div>
+					<div class="interes">
+						<ul>
+							<li class="interes0">
+								<input type="text" name="interes[0]" placeholder="Zainteresowanie" />
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="klauzula">
+				<span>
+					<textarea name="klauzula" placeholder="Klauzula o ochronie danych osobowych"></textarea>
+					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+				</span>
+			</div>
+			<input type="submit" value="Wyślij" />
+			<input type="reset" value="Wyczyść formularz" />
+			<div style="clear: both"></div>
+		</div>
+	</form>	
+</body>
+</html>

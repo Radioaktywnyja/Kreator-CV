@@ -1,0 +1,222 @@
+body {
+   font-family: "Arial","Verdana","Century Gothic",sans-serif;
+   font-size:12px;
+   background-color: #ffffff;
+}
+
+#kontener {
+	width: 210mm;
+	margin: 0 auto;
+	background-color: #ffffff;
+	padding: 30px;
+}
+
+a:link, a:visited, a:hover {
+	color: #000000;
+	text-decoration: none;
+} 
+
+/*O Sobie*/
+
+#osobie {
+	display: inline-block;
+	width: 790px;
+	text-align: justify;
+	margin-bottom: 15px;
+	float: left;
+}
+
+#osobie span {
+	display: block;
+}
+
+.osobie_nazwisko {
+	font-size: 40px;
+	font-weight: bold; 
+}
+
+.osobie_zawod {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+/*Elementy*/
+
+#kolumna_lewa {
+	width: 600px;
+	display: inline-block;
+	float: left;
+}
+
+#kolumna_prawa {
+	width: 170px;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.element {
+	margin-bottom: 15px;
+}
+
+.element_tytul {
+	font-size: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid;
+}
+
+/*Doswiadczenie*/
+
+.dosw_okres {
+	display: inline-block;
+	width: 60px;
+	float: left;
+	font-weight: bold;
+}
+
+.dosw_opis {
+	display: inline-block;
+	width:540px;
+	text-align: justify;
+	margin-bottom: 10px;
+}
+
+.dosw_posada {
+	font-weight: bold;
+}
+
+.dosw_zakrespracy_tytul {
+	font-weight: bold;
+	display: block;
+	margin-top: 3px;
+}
+
+/*Projekty*/
+
+.proj {
+	text-align: justify;
+}
+
+.proj_adres {
+	display: block;
+	font-weight: bold;
+}
+
+.proj ul {
+	padding-left: 60px;
+}
+
+.proj li {
+	margin-bottom: 5px;
+}
+
+/*Umiejetnosci*/
+
+.umiej ul {
+	padding-left: 60px;
+}
+
+.umiej li {
+	margin-bottom: 5px;
+}
+
+.umiej_nazwa {
+	font-weight: bold;
+	width: 200px;
+	display: inline-block;
+}
+
+.umiej_poziom img {
+	width: 15px;
+	height: 15px;
+}
+
+/*Kursy*/
+
+.kursy ul {
+	padding-left: 60px;
+}
+
+.kursy li {
+	margin-bottom: 5px;
+}
+
+/*Edukacja*/
+
+.edu_okres {
+	display: inline-block;
+	width: 60px;
+	float: left;
+	font-weight: bold;
+}
+
+.edu_opis {
+	display: inline-block;
+	width:540px;
+	text-align: justify;
+	margin-bottom: 10px;
+}
+
+.edu_uczelnia {
+	display: block;
+	font-weight: bold;
+}
+	
+/*Personalia*/
+
+.person_dane span {
+	display: block;
+}
+
+.person_tytul {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/*Jezyki*/
+
+.jezyk_tytul {
+	display: block;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/*Portale*/
+
+.portal_tytul {
+	display: block;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/*Zainteresowania*/
+
+.zainteresowania ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.zainteresowania li {
+	margin-bottom: 5px;
+}
+
+/*Podpis*/
+
+.podpis {
+	width: 170px;
+	height: 61px;
+	margin-top: 50px;
+}
+
+/*Klauzula*/
+
+#klauzula {
+	margin-top: 20px;
+	clear: both;
+}
+
+/*Formularz*/
+
+.okres {
+	width: 50px;
+}
