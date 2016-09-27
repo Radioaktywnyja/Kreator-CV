@@ -2,6 +2,7 @@ body {
    font-family: "Arial","Verdana","Century Gothic",sans-serif;
    font-size:12px;
    background-color: #ffffff;
+   word-wrap: break-word;
 }
 
 #kontener {
@@ -20,7 +21,7 @@ a:link, a:visited, a:hover {
 
 #osobie {
 	display: inline-block;
-	width: 790px;
+	width: 600px;
 	text-align: justify;
 	margin-bottom: 15px;
 	float: left;
@@ -39,6 +40,20 @@ a:link, a:visited, a:hover {
 	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 15px;
+}
+
+#zdjecie {
+	display: inline-block;
+	float: right;
+	width: 170px;
+	height: 170px;
+	background-image: url(zdjecie.png);
+	background-size: cover;
+}
+
+#zdjecie img {
+	width: 170px;
+	height: 170px;
 }
 
 /*Elementy*/

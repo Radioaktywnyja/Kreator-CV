@@ -10,7 +10,7 @@
 	<script src="pliki/skrypty.js" type="text/javascript"></script>
 </head>
 <body>
-	<form action="insert.php" method="POST">
+	<form action="insert.php" method="POST" enctype="multipart/form-data">
 		<div id="kontener">
 			<div id="osobie">
 				<span class="osobie_nazwisko">
@@ -25,7 +25,10 @@
 					<textarea name="sciezka" placeholder="Kilka zdań o sobie i o planowanej ścieżce zawodowej"></textarea>
 					<button type="button" class="usun_pole" status="u">Usuń pole</button>
 				</span>
-				
+			</div>
+			<div id="zdjecie">
+				<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+				<input type="file" name="zdjecie" accept="image/jpeg, image/png" />
 			</div>
 			<div id="kolumna_lewa">
 				<div class="element doswiadczenie">
