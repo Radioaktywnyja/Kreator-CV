@@ -5,7 +5,7 @@
 	<title>CV Kreator</title>
 	<meta name="Description" content="Prosty i darmowy kreator CV.">
 	<meta name="Keywords" content="CV, Kreator, Wzór">
-	<link rel="stylesheet" type="text/css" href="pliki/style.css">
+	<link rel="stylesheet" type="text/css" href="pliki/style_cv.css">
 </head>
 <body>
 

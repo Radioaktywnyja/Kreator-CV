@@ -1,0 +1,309 @@
+body {
+   font-family: "Arial","Verdana","Century Gothic",sans-serif;
+   font-size:12px;
+   background-color: #ffffff;
+   word-wrap: break-word;
+}
+
+#kontener {
+	width: 210mm;
+	margin: 0 auto;
+	background-color: #ffffff;
+	padding: 30px;
+}
+
+a:link, a:visited, a:hover {
+	color: #000000;
+	text-decoration: none;
+} 
+
+/*O Sobie*/
+
+#osobie {
+	display: inline-block;
+	width: 550px;
+	text-align: justify;
+	margin-bottom: 15px;
+	float: left;
+}
+
+#osobie span {
+	display: block;
+}
+
+#osobie input {
+	width: 510px;
+	margin-bottom: 7px;
+}
+
+.osobie_cele textarea {
+	width: 510px;
+}
+
+#zdjecie {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	margin-left: 20px;
+	width: 170px;
+	height: 170px;
+	background-image: url(zdjecie.png);
+	background-size: cover;
+	text-align: center;
+}
+
+#zdjecie button {
+	width: 120px;
+	border-radius: 20px;
+}
+
+.upload {
+		width: 120px;
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+/*Elementy*/
+
+#kolumna_lewa {
+	width: 550px;
+	display: inline-block;
+	float: left;
+}
+
+#kolumna_prawa {
+	width: 220px;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+#kolumna_prawa input {
+	width: 180px;
+	margin-bottom: 7px;
+}
+
+#kolumna_prawa .element_tytul span {
+	display: block;
+}
+
+.element {
+	margin-bottom: 15px;
+}
+
+.element_tytul {
+	font-size: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid;
+	padding-bottom: 5px;
+}
+
+/*Doswiadczenie*/
+
+.dosw_okres {
+	display: inline-block;
+	width: 60px;
+	float: left;
+	font-weight: bold;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.dosw_opis {
+	display: inline-block;
+	width: 460px;
+	text-align: justify;
+	margin-bottom: 10px;
+}
+
+.dosw_opis input {
+	margin-bottom: 14px;
+}
+
+.dosw_posada input {
+	width: 213px;
+}
+
+.dosw_zakrespracy input {
+	width: 445px;
+}
+
+/*Projekty*/
+
+.proj {
+	text-align: justify;
+}
+
+.proj_adres {
+	display: block;
+	font-weight: bold;
+}
+
+.proj ul {
+	padding-left: 60px;
+}
+
+.proj li {
+	margin-bottom: 7px;
+}
+
+.proj input {
+	width: 445px;
+	margin-bottom: 7px;
+}
+
+/*Umiejetnosci*/
+
+.umiej ul {
+	padding-left: 60px;
+}
+
+.umiej_nazwa {
+	font-weight: bold;
+	width: 280px;
+	display: inline-block;
+}
+
+.umiej_nazwa input {
+	width: 260px;
+	margin-bottom: 7px;
+}
+
+.umiej_poziom img {
+	width: 15px;
+	height: 15px;
+}
+
+/*Kursy*/
+
+.kursy ul {
+	padding-left: 60px;
+}
+
+.kursy input {
+	width: 445px;
+	margin-bottom: 7px;
+}
+
+/*Edukacja*/
+
+.edu_okres {
+	display: inline-block;
+	width: 60px;
+	float: left;
+	font-weight: bold;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.edu_opis {
+	display: inline-block;
+	width:460px;
+	text-align: justify;
+	margin-bottom: 10px;
+}
+
+.edu_uczelnia {
+	display: block;
+	font-weight: bold;
+}
+
+.edu_miejsce input {
+	width: 445px;
+	margin-bottom: 14px;
+}
+	
+/*Personalia*/
+
+.person_dane span {
+	display: block;
+}
+
+.person_tytul {
+	font-weight: bold;
+}
+
+/*Jezyki*/1
+
+.jezyk_tytul {
+	display: block;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/*Portale*/
+
+.portal_tytul {
+	display: block;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/*Zainteresowania*/
+
+.zainteresowania ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.zainteresowania li {
+	margin-bottom: 5px;
+}
+
+/*Podpis*/
+
+.podpis {
+	width: 170px;
+	height: 61px;
+	margin-top: 50px;
+}
+
+/*Klauzula*/
+
+#klauzula {
+	margin-top: 20px;
+	clear: both;
+}
+
+#klauzula textarea {
+	width: 750px;
+	margin-bottom: 14px;
+}
+
+/*Formularz*/
+
+.okres {
+	width: 50px;
+}
+
+/*Tooltip*/
+
+.tooltip {
+	position: absolute;
+	display: none;
+	border: 1px solid #808080;
+	border-radius: 5px;
+	background-color: #EEEEEE;
+	padding: 2px;
+}
+
+.tooltip-act {
+	padding: 0;
+}
+
+.usun {
+	float: right;
+	font-weight: bold;
+}
+
+.usun_pole {
+	float: right;
+	font-weight: bold;
+}

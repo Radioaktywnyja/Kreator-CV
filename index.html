@@ -5,7 +5,7 @@
 	<title>CV Kreator</title>
 	<meta name="Description" content="Prosty i darmowy kreator CV.">
 	<meta name="Keywords" content="CV, Kreator, Wzór">
-	<link rel="stylesheet" type="text/css" href="pliki/style.css">
+	<link rel="stylesheet" type="text/css" href="pliki/style_form.css">
 	<script src="pliki/jq.js" type="text/javascript"></script>
 	<script src="pliki/skrypty.js" type="text/javascript"></script>
 </head>
@@ -15,27 +15,28 @@
 			<div id="osobie">
 				<span class="osobie_nazwisko">
 					<input type="text" name="nazwisko" placeholder="Imię i Nazwisko" />
-					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+					<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 				</span>
 				<span class="osobie_zawod">
 					<input type="text" name="zawod" placeholder="Zawód" />
-					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+					<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 				</span>
 				<span class="osobie_cele">
 					<textarea name="sciezka" placeholder="Kilka zdań o sobie i o planowanej ścieżce zawodowej"></textarea>
-					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+					<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 				</span>
 			</div>
 			<div id="zdjecie">
+				<button type="button">Wybierz zdjęcie</button>
 				<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-				<input type="file" name="zdjecie" accept="image/jpeg, image/png" />
+				<input class="upload" type="file" name="zdjecie" accept="image/jpeg, image/png" />
 			</div>
 			<div id="kolumna_lewa">
 				<div class="element doswiadczenie">
 					<div class="element_tytul">
 						<span>Doświadczenie</span>
-						<button type="button" class="praca_dodaj">Dodaj kolejne</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="praca_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejne</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>
 					<div class="dosw_praca0">
 						<div class="dosw_okres">
@@ -50,11 +51,9 @@
 								<span class="dosw_stanowisko"><input type="text" name="stanowisko[0]" placeholder="Stanowisko" /></span>
 							</div>
 							<div class="dosw_zakrespracy">
-								<span class="dosw_zakrespracy_tytul">Obowiązki:</span>
 								<span class="dosw_obowiazki">
 									<input type="text" name="obowiazki[0]" placeholder="Zakres obowiązków na tym stanowisku" />
 								</span>
-								<span class="dosw_zakrespracy_tytul">Osiągnięcia:</span>
 								<span class="dosw_osiagniecia">
 									<input type="text" name="osiagniecia[0]" placeholder="Największe osiągnięcia na tym stanowisku" />
 								</span>
@@ -65,8 +64,8 @@
 				<div class="element projekty">
 					<div class="element_tytul">
 						<span>Projekty</span>
-						<button type="button" class="projekt_dodaj">Dodaj kolejny</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="projekt_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejny</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>
 					<div class="proj">
 						<ul>
@@ -80,13 +79,13 @@
 				<div class="element umiejetnosci">
 					<div class="element_tytul">
 						<span>Umiejętności</span>
-						<button type="button" class="umiej_dodaj">Dodaj kolejną</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="umiej_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejną</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>
 					<div class="umiej">
 						<ul>
 							<li class="umiej0">
-								<span class="umiej_nazwa"><input type="text" name="umiej_nazwa[0]" placeholder="Umiejętność" /></span>
+								<span class="umiej_nazwa"><input type="text" name="umiej_nazwa[0]" placeholder="Nazwa umiejętności i jej poziom w skali 1-5" /></span>
 								<span class="umiej_poziom">
 									<input type="radio" name="umiej_poziom[0]" value="1" checked="checked" />1
 									<input type="radio" name="umiej_poziom[0]" value="2" />2
@@ -101,8 +100,8 @@
 				<div class="element kursy">
 					<div class="element_tytul">
 						<span>Kursy</span>
-						<button type="button" class="kurs_dodaj">Dodaj kolejny</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="kurs_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejny</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>
 					<div class="kurs">
 						<ul>
@@ -115,8 +114,8 @@
 				<div class="element edukacja">
 					<div class="element_tytul">
 						<span>Edukacja</span>
-						<button type="button" class="edu_dodaj">Dodaj kolejną</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="edu_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejną</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>
 					<div class="edu_szkola0">
 						<div class="edu_okres">
@@ -142,42 +141,42 @@
 						<span class="person_tytul">Data urodzenia:</span>
 						<span class="person_urodziny">
 							<input type="text" name="urodziny" placeholder="DD.MM.RRRR" />
-							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+							<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 						</span>
 						<span class="person_tytul">Obywatelstwo:</span>
 						<span class="person_obywatelstwo">
-							<input type="text" name="obywatelstwo" placeholder="Polskie" />
-							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+							<input type="text" name="obywatelstwo" placeholder="Obywatelstwo" />
+							<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 						</span>
 						<span class="person_tytul">Adres:</span>
 						<span class="person_adres">
 							<input type="text" name="ulica" placeholder="Ulica nr" />
 							<input type="text" name="miasto" placeholder="XX-XXX Miejscowość" />
 							<input type="text" name="kraj" placeholder="Kraj" />
-							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+							<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 						</span>
 						<span class="person_tytul">Telefon:</span>
 						<span class="person_telefon">
 							<input type="text" name="telefon" placeholder="Nr telefonu" />
-							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+							<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 						</span>
 						<span class="person_tytul">E-mail:</span>
 						<span class="email">
 							<input type="text" name="mail" placeholder="Adres e-mail" />
-							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+							<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 						</span>
 						<span class="person_tytul">WWW:</span>
 						<span class="person_www">
 							<input type="text" name="strona" placeholder="Strona WWW" />
-							<button type="button" class="usun_pole" status="u">Usuń pole</button>
+							<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 						</span>
 					</div>
 				</div>
 				<div class="element jezyki">
 					<div class="element_tytul">
 						<span>Języki</span>
-						<button type="button" class="jezyk_dodaj">Dodaj kolejny</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="jezyk_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejny</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>	
 					<div class="jezyk0">
 						<span class="jezyk_tytul"><input type="text" name="jezyk_tytul[0]" placeholder="Język" /></span>
@@ -187,8 +186,8 @@
 				<div class="element portale">
 					<div class="element_tytul">
 						<span>Portale społecznościowe</span>
-						<button type="button" class="portal_dodaj">Dodaj kolejny</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="portal_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejny</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>	
 					<div class="portal0">
 						<span class="portal_tytul"><input type="text" name="portal_tytul[0]" placeholder="Nazwa portalu" /></span>
@@ -198,8 +197,8 @@
 				<div class="element zainteresowania">
 					<div class="element_tytul">
 						<span>Zainteresowania</span>
-						<button type="button" class="interes_dodaj">Dodaj kolejne</button>
-						<button type="button" class="usun_element" status="u">Usuń element</button>
+						<button type="button" class="interes_dodaj tooltip-act" tool=".dodaj_pozycje">Dodaj kolejne</button>
+						<button type="button" class="usun_element tooltip-act" tool=".usun_element_opis-u" status="u">Usuń element</button>
 					</div>
 					<div class="interes">
 						<ul>
@@ -213,11 +212,35 @@
 			<div id="klauzula">
 				<span>
 					<textarea name="klauzula" placeholder="Klauzula o ochronie danych osobowych"></textarea>
-					<button type="button" class="usun_pole" status="u">Usuń pole</button>
+					<button type="button" class="usun_pole tooltip-act" tool=".usun_pole_opis-u" status="u">X</button>
 				</span>
 			</div>
-			<input type="submit" value="Wyślij" />
-			<input type="reset" value="Wyczyść formularz" />
+			<input class="tooltip-act" tool=".wyslij_form" type="submit" value="Wyświetl" />
+			<input class="tooltip-act" tool=".wyczysc_form" type="reset" value="Wyczyść formularz" />
+			<div class="tooltip usun_pole_opis-u">
+				<span>Usuwa z CV wybrane pole. Może zostać przywrócone</span>
+			</div>
+			<div class="tooltip usun_pole_opis-p">
+				<span>Przywraca do CV wybrane pole</span>
+			</div>
+			<div class="tooltip usun_element_opis-u">
+				<span>Usuwa z CV caly element. Może zostać przywrócony bez utraty danych</span>
+			</div>
+			<div class="tooltip usun_element_opis-p">
+				<span>Przywraca do CV caly element</span>
+			</div>
+			<div class="tooltip dodaj_pozycje">
+				<span>Dodaje do elementu kolejną pozycję</span>
+			</div>
+			<div class="tooltip usun_pozycje">
+				<span>Usuwa z elementu ostatnią pozycję, bez możliwości odzyskania danych</span>
+			</div>
+			<div class="tooltip wyslij_form">
+				<span>Wyświetla gotowe CV, z możliwością ponownej edycji</span>
+			</div>
+			<div class="tooltip wyczysc_form">
+				<span>Czyści cały formularz, bez możliwości odzyskania danych</span>
+			</div>
 			<div style="clear: both"></div>
 		</div>
 	</form>	

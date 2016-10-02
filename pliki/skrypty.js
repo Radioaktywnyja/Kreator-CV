@@ -14,7 +14,7 @@ $(document).ready(function () {
 		nowaPraca.find("input[name='stanowisko[0]']").attr("name", "stanowisko["+exp+"]");
 		nowaPraca.find("input[name='obowiazki[0]']").attr("name", "obowiazki["+exp+"]");
 		nowaPraca.find("input[name='osiagniecia[0]']").attr("name", "osiagniecia["+exp+"]");
-		nowaPraca.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowaPraca.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowaPraca.appendTo(".doswiadczenie");
 		$(".dosw_praca"+(exp-1)).find(".usun").remove();
 	});
@@ -24,8 +24,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		exp--;
 		if (exp > 0) {
-			$(".dosw_praca"+exp).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".dosw_praca"+exp).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 	
@@ -39,7 +40,7 @@ $(document).ready(function () {
 		nowyProjekt.attr("class", "projekt"+proj);
 		nowyProjekt.find("input[name='proj_adres[0]']").attr("name", "proj_adres["+proj+"]");
 		nowyProjekt.find("input[name='proj_opis[0]']").attr("name", "proj_opis["+proj+"]");
-		nowyProjekt.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowyProjekt.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyProjekt.appendTo(".proj ul");
 		$(".projekt"+(proj-1)).find(".usun").remove();
 	});
@@ -49,8 +50,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		proj--;
 		if (proj > 0) {
-			$(".projekt"+proj).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".projekt"+proj).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 	
@@ -64,7 +66,7 @@ $(document).ready(function () {
 		nowaUmiej.attr("class", "umiej"+skil);
 		nowaUmiej.find("input[name='umiej_nazwa[0]']").attr("name", "umiej_nazwa["+skil+"]");
 		nowaUmiej.find("input[name='umiej_poziom[0]']").attr("name", "umiej_poziom["+skil+"]");
-		nowaUmiej.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowaUmiej.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowaUmiej.appendTo(".umiej ul");
 		$(".umiej"+(skil-1)).find(".usun").remove();
 	});
@@ -74,8 +76,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		skil--;
 		if (skil > 0) {
-			$(".umiej"+skil).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".umiej"+skil).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 	
@@ -88,7 +91,7 @@ $(document).ready(function () {
 		kur++;
 		nowyKurs.attr("class", "kurs"+kur);
 		nowyKurs.find("input[name='kurs[0]']").attr("name", "kurs["+kur+"]");
-		nowyKurs.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowyKurs.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyKurs.appendTo(".kurs ul");
 		$(".kurs"+(kur-1)).find(".usun").remove();
 	});
@@ -98,8 +101,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		kur--;
 		if (kur > 0) {
-			$(".kurs"+kur).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".kurs"+kur).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 	
@@ -115,7 +119,7 @@ $(document).ready(function () {
 		nowaSzkola.find("input[name='edu_do[0]']").attr("name", "edu_do["+edu+"]");
 		nowaSzkola.find("input[name='edu_uczelnia[0]']").attr("name", "edu_uczelnia["+edu+"]");
 		nowaSzkola.find("input[name='edu_kierunek[0]']").attr("name", "edu_kierunek["+edu+"]");
-		nowaSzkola.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowaSzkola.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowaSzkola.appendTo(".edukacja");
 		$(".edu_szkola"+(edu-1)).find(".usun").remove();
 	});
@@ -125,8 +129,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		edu--;
 		if (edu > 0) {
-		 $(".edu_szkola"+edu).prepend("<input class='usun' type='button' value='Usuń' />");
+		 $(".edu_szkola"+edu).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 	
@@ -140,7 +145,7 @@ $(document).ready(function () {
 		nowyJezyk.attr("class", "jezyk"+jez);
 		nowyJezyk.find("input[name='jezyk_tytul[0]']").attr("name", "jezyk_tytul["+jez+"]");
 		nowyJezyk.find("input[name='jezyk_poziom[0]']").attr("name", "jezyk_poziom["+jez+"]");
-		nowyJezyk.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowyJezyk.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyJezyk.appendTo(".jezyki");
 		$(".jezyk"+(jez-1)).find(".usun").remove();
 	});
@@ -150,8 +155,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		jez--;
 		if (jez > 0) {
-			$(".jezyk"+jez).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".jezyk"+jez).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 
 
@@ -165,7 +171,7 @@ $(document).ready(function () {
 		nowyPortal.attr("class", "portal"+por);
 		nowyPortal.find("input[name='portal_tytul[0]']").attr("name", "portal_tytul["+por+"]");
 		nowyPortal.find("input[name='portal_adres[0]']").attr("name", "portal_adres["+por+"]");
-		nowyPortal.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowyPortal.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyPortal.appendTo(".portale");
 		$(".portal"+(por-1)).find(".usun").remove();
 	});
@@ -175,8 +181,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		por--;
 		if (por > 0) {
-			$(".portal"+por).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".portal"+por).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 	
@@ -189,7 +196,7 @@ $(document).ready(function () {
 		zaint++;
 		nowyInteres.attr("class", "interes"+zaint);
 		nowyInteres.find("input[name='interes[0]']").attr("name", "interes["+zaint+"]");
-		nowyInteres.prepend("<input class='usun' type='button' value='Usuń' />");
+		nowyInteres.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyInteres.appendTo(".interes ul");
 		$(".interes"+(zaint-1)).find(".usun").remove();
 	});
@@ -199,8 +206,9 @@ $(document).ready(function () {
 		$(this).parent().remove();
 		zaint--;
 		if (zaint > 0) {
-			$(".interes"+zaint).prepend("<input class='usun' type='button' value='Usuń' />");
+			$(".interes"+zaint).prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		}
+		$(".tooltip").hide();
 	});
 	
 
@@ -218,6 +226,7 @@ $(document).ready(function () {
 			$(this).siblings("button").hide();
 			$(this).text("Przywróć element");
 			$(this).attr("status", "p");
+			$(this).attr("tool", ".usun_element_opis-p");
 		} else {
 			$(this).parents(".element").find("input").removeAttr("disabled");
 			$(this).parents(".element").find(".element_tytul span").css("text-decoration", "none");
@@ -225,6 +234,7 @@ $(document).ready(function () {
 			$(this).siblings("button").show();
 			$(this).text("Usuń element");
 			$(this).attr("status", "u");
+			$(this).attr("tool", ".usun_element_opis-u");
 		}
 	});
 	
@@ -233,13 +243,26 @@ $(document).ready(function () {
 		status = $(this).attr("status");
 		if (status == "u") {
 			$(this).siblings().attr("disabled", "disabled").css("text-decoration", "line-through");
-			$(this).text("Przywróć pole");
+			$(this).text("+");
 			$(this).attr("status", "p");
+			$(this).attr("tool", ".usun_pole_opis-p");
 		} else {
 			$(this).siblings().removeAttr("disabled").css("text-decoration", "none");
-			$(this).text("Usuń pole");
+			$(this).text("X");
 			$(this).attr("status", "u");
+			$(this).attr("tool", ".usun_pole_opis-u");
 		}
+	});
+	
+	//tooltip z opisem przycisków
+	$("#kontener").on("mouseenter", ".tooltip-act", function (event) {
+		tool=$(this).attr("tool");
+		$(tool).css("bottom", $(window).height() - event.pageY + 5).css("left", event.pageX + 5);
+		$(tool).show();
+	}).on("mouseleave", ".tooltip-act", function () {
+		$(tool).hide();
+	}).on("click", ".tooltip-act", function () {
+		$(".tooltip").hide();
 	});
 	
 });
