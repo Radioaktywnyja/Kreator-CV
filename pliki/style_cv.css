@@ -19,6 +19,10 @@ a:link, a:visited, a:hover {
 
 /*O Sobie*/
 
+#naglowek {
+	float: left;
+}
+
 #osobie {
 	display: inline-block;
 	width: 600px;
@@ -49,6 +53,15 @@ a:link, a:visited, a:hover {
 	height: 170px;
 	background-image: url(zdjecie.png);
 	background-size: cover;
+	margin-left: 20px;
+}
+
+#zdjecie span {
+	display: block;
+	font-weight: bold;
+	margin: 70px 0 0 10px;
+	text-align: justify;
+	width: 150px;
 }
 
 #zdjecie img {

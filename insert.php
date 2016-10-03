@@ -25,37 +25,37 @@ $sciezka = test_input($_POST['sciezka']);
 
 
 //dodawanie zdjęcia
-//sprawdzenie czy przy próbie wysłania pliku wystąpił błąd
-if($_FILES['zdjecie']['error'] > 0) {
-	echo "Problem: ";
-	switch($_FILES['zdjecie']['error']) {
-		case 1: echo "Rozmiar pliku przekroczył wartość 2 Mb. Proszę wybrać inne zdjęcie."; break;
-		case 2: echo "Rozmiar pliku przekroczyl wartość max_file_size"; break;
-		case 3: echo "Plik wysłany tylko częściowo"; break;
-		case 4: echo "Nie wysłano żadnego pliku"; break;
-		case 6: echo "Nie można wysłać pliku: Nie wskazano katalogu tymczasowego."; break;
-		case 7: echo "Wysyłanie pliku nie powiodło się: Nie zapisano pliku na dysku."; break;
+//sprawdzenie czy użytkownik dodał zdjecie
+if($_FILES['zdjecie']['error'] != 4) {
+
+	//sprawdzenie czy przy próbie wysłania pliku wystąpił błąd
+	$rozmiar_zdjecia = getimagesize($_FILES['zdjecie']['tmp_name']);
+	
+	if($_FILES['zdjecie']['error'] > 0) {
+		switch($_FILES['zdjecie']['error']) {
+			case 1: $blad_zdjecia = "Rozmiar pliku przekroczył wartość 2 Mb. Proszę wybrać inne zdjęcie."; break;
+			case 2: $blad_zdjecia = "Rozmiar pliku przekroczyl wartość 2 Mb. Proszę wybrać inne zdjęcie."; break;
+			case 3: $blad_zdjecia = "Plik wysłany tylko częściowo"; break;
+			case 4: $blad_zdjecia = "Nie wysłano żadnego pliku"; break;
+			case 6: $blad_zdjecia = "Nie można wysłać pliku: Nie wskazano katalogu tymczasowego."; break;
+			case 7: $blad_zdjecia = "Wysyłanie pliku nie powiodło się: Nie zapisano pliku na dysku."; break;
+		}
+	//sprawdzenie czy plik jest obrazem
+	} elseif($_FILES['zdjecie']['type'] != "image/jpeg" && $_FILES['zdjecie']['type'] != "image/png") {
+		$blad_zdjecia = "Wybrane zdjęcie nie jest plikiem typu jpeg lub png. Proszę wybrać inne zdjęcie";
+	} elseif(!is_array($rozmiar_zdjecia) or $rozmiar_zdjecia[0] < 2) {
+		$blad_zdjecia = "Wybrane zdjęcie nie jest plikiem typu jpeg lub png. Proszę wybrać inne zdjęcie";
+	} else {
+		//umieszczenie pliku w pożądanej lokalizacji
+		$lokalizacja = './pliki/zdjecia/'.basename($_FILES['zdjecie']['name']);
+		
+		if(is_uploaded_file($_FILES['zdjecie']['tmp_name'])) {
+			move_uploaded_file($_FILES['zdjecie']['tmp_name'], $lokalizacja);
+			$zdjecie = "url(".$lokalizacja.")";
+		}
 	}
-	exit;
-}
-
-//sprawdzenie czy plik jest obrazem
-if($_FILES['zdjecie']['type'] != "image/jpeg" && $_FILES['zdjecie']['type'] != "image/png") {
-	echo "Wrzucone zdjęcie nie jest plikiem typu jpeg lub png. Proszę wybrać inne zdjęcie";
-	exit;
-}
-
-$rozmiar_zdjecia = getimagesize($_FILES['zdjecie']['tmp_name']);
-if(!is_array($rozmiar_zdjecia) or $rozmiar_zdjecia[0] < 2) {
-	echo "Wrzucone zdjęcie nie jest plikiem typu jpeg lub png. Proszę wybrać inne zdjęcie";
-	exit;
-}
-
-//umieszczenie pliku w pożądanej lokalizacji
-$zdjecie = './pliki/zdjecia/'.basename($_FILES['zdjecie']['name']);
-
-if(is_uploaded_file($_FILES['zdjecie']['tmp_name'])) {
-	move_uploaded_file($_FILES['zdjecie']['tmp_name'], $zdjecie);
+} else {
+	$zdjecie ="none";
 }
 
 
@@ -141,12 +141,14 @@ $klauzula = test_input($_POST['klauzula']);
 ?>
 
 	<div id="kontener">
-		<div id="osobie">
-			<span class="osobie_nazwisko"><?php echo $nazwisko; ?></span>
-			<span class="osobie_zawod"><?php echo $zawod; ?></span>
-			<span class="osobie_cele"><?php echo $sciezka; ?></span>
+		<div id="naglowek">
+			<div id="osobie">
+				<span class="osobie_nazwisko"><?php echo $nazwisko; ?></span>
+				<span class="osobie_zawod"><?php echo $zawod; ?></span>
+				<span class="osobie_cele"><?php echo $sciezka; ?></span>
+			</div>
+			<div id="zdjecie" style="background-image: <?php echo $zdjecie; ?>"><span><?php if(isset($blad_zdjecia)) { echo $blad_zdjecia; } ?></span></div>
 		</div>
-		<div id="zdjecie" style="background-image: url(<?php echo $zdjecie ?>);"></div>
 		<div id="kolumna_lewa">
 <?php
 if($ileprac > 0) {
