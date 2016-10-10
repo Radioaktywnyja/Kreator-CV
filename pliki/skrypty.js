@@ -3,11 +3,12 @@ $(document).ready(function () {
 //---DOSWIADCZENIE---
 	
 	//dodawanie kolejnego doswiadczenia
-	var exp = 0;
+	var exp = $(".doswiadczenie > div:last-child").attr("nrpracy");
 	$(".praca_dodaj").on("click", function () {
 		var nowaPraca = $(".dosw_praca0").clone();
 		exp++;
 		nowaPraca.attr("class", "dosw_praca"+exp);
+		nowaPraca.attr("nrpracy", exp);
 		nowaPraca.find("input[name='praca_od[0]']").attr("name", "praca_od["+exp+"]");
 		nowaPraca.find("input[name='praca_do[0]']").attr("name", "praca_do["+exp+"]");
 		nowaPraca.find("input[name='pracodawca[0]']").attr("name", "pracodawca["+exp+"]");
@@ -33,11 +34,12 @@ $(document).ready(function () {
 //---PROJEKTY---
 	
 	//dodawanie kolejnego projektu
-	var proj = 0;
+	var proj = $(".proj ul > li:last-child").attr("nrproj");
 	$(".projekt_dodaj").on("click", function () {
 		var nowyProjekt = $(".projekt0").clone();
 		proj++;
 		nowyProjekt.attr("class", "projekt"+proj);
+		nowyProjekt.attr("nrproj", proj);
 		nowyProjekt.find("input[name='proj_adres[0]']").attr("name", "proj_adres["+proj+"]");
 		nowyProjekt.find("input[name='proj_opis[0]']").attr("name", "proj_opis["+proj+"]");
 		nowyProjekt.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
@@ -59,11 +61,12 @@ $(document).ready(function () {
 //---UMIEJĘTNOŚCI---
 	
 	//dodawanie kolejnej umiejętności
-	var skil = 0;
+	var skil = $(".umiej ul >li:last-child").attr("nrumiej");
 	$(".umiej_dodaj").on("click", function () {
 		var nowaUmiej = $(".umiej0").clone();
 		skil++;
 		nowaUmiej.attr("class", "umiej"+skil);
+		nowaUmiej.attr("nrumiej", skil);
 		nowaUmiej.find("input[name='umiej_nazwa[0]']").attr("name", "umiej_nazwa["+skil+"]");
 		nowaUmiej.find("input[name='umiej_poziom[0]']").attr("name", "umiej_poziom["+skil+"]");
 		nowaUmiej.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
@@ -85,11 +88,12 @@ $(document).ready(function () {
 //---KURSY---
 	
 	//dodawanie kolejnego kursu
-	var kur = 0;
+	var kur = $(".kurs ul > li:last-child").attr("nrkurs");
 	$(".kurs_dodaj").on("click", function () {
 		var nowyKurs = $(".kurs0").clone();
 		kur++;
 		nowyKurs.attr("class", "kurs"+kur);
+		nowyKurs.attr("nrkurs", kur);
 		nowyKurs.find("input[name='kurs[0]']").attr("name", "kurs["+kur+"]");
 		nowyKurs.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyKurs.appendTo(".kurs ul");
@@ -110,11 +114,12 @@ $(document).ready(function () {
 //---EDUKACJA---
 	
 	//dodawanie kolejnej szkoły
-	var edu = 0;
+	var edu = $(".edukacja > div:last-child").attr("nredu");
 	$(".edu_dodaj").on("click", function () {
 		var nowaSzkola = $(".edu_szkola0").clone();
 		edu++;
 		nowaSzkola.attr("class", "edu_szkola"+edu);
+		nowaSzkola.attr("nredu", edu);
 		nowaSzkola.find("input[name='edu_od[0]']").attr("name", "edu_od["+edu+"]");
 		nowaSzkola.find("input[name='edu_do[0]']").attr("name", "edu_do["+edu+"]");
 		nowaSzkola.find("input[name='edu_uczelnia[0]']").attr("name", "edu_uczelnia["+edu+"]");
@@ -138,11 +143,12 @@ $(document).ready(function () {
 //---JEZYKI---
 	
 	//dodawanie kolejnego jezyka
-	var jez = 0;
+	var jez = $(".jezyki > div:last-child").attr("nrjez");
 	$(".jezyk_dodaj").on("click", function () {
 		var nowyJezyk = $(".jezyk0").clone();
 		jez++;
 		nowyJezyk.attr("class", "jezyk"+jez);
+		nowyJezyk.attr("nrjez", jez);
 		nowyJezyk.find("input[name='jezyk_tytul[0]']").attr("name", "jezyk_tytul["+jez+"]");
 		nowyJezyk.find("input[name='jezyk_poziom[0]']").attr("name", "jezyk_poziom["+jez+"]");
 		nowyJezyk.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
@@ -164,11 +170,12 @@ $(document).ready(function () {
 //---PORTALE---
 	
 	//dodawanie kolejnego portalu
-	var por = 0;
+	var por = $(".portale > div:last-child").attr("nrport");
 	$(".portal_dodaj").on("click", function () {
 		var nowyPortal = $(".portal0").clone();
 		por++;
 		nowyPortal.attr("class", "portal"+por);
+		nowyPortal.attr("nrport", por);
 		nowyPortal.find("input[name='portal_tytul[0]']").attr("name", "portal_tytul["+por+"]");
 		nowyPortal.find("input[name='portal_adres[0]']").attr("name", "portal_adres["+por+"]");
 		nowyPortal.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
@@ -190,11 +197,12 @@ $(document).ready(function () {
 //---ZAINTERESOWANIA---
 	
 	//dodawanie kolejnego zainteresowania
-	var zaint = 0;
+	var zaint = $(".interes ul > li:last-child").attr("nrint");
 	$(".interes_dodaj").on("click", function () {
 		var nowyInteres = $(".interes0").clone();
 		zaint++;
 		nowyInteres.attr("class", "interes"+zaint);
+		nowyInteres.attr("nrint", zaint);
 		nowyInteres.find("input[name='interes[0]']").attr("name", "interes["+zaint+"]");
 		nowyInteres.prepend("<button class='usun tooltip-act' tool='.usun_pozycje' type='button'>X</button>");
 		nowyInteres.appendTo(".interes ul");
@@ -220,7 +228,6 @@ $(document).ready(function () {
 	$(".element").on("click", ".usun_element", function () {
 		status = $(this).attr("status");
 		if (status == "u") {
-			$(this).parents(".element").find("input").attr("disabled", "disabled");
 			$(this).parents(".element").find(".element_tytul span").css("text-decoration", "line-through");
 			$(this).parent().siblings().hide();
 			$(this).siblings("button").hide();
@@ -228,7 +235,6 @@ $(document).ready(function () {
 			$(this).attr("status", "p");
 			$(this).attr("tool", ".usun_element_opis-p");
 		} else {
-			$(this).parents(".element").find("input").removeAttr("disabled");
 			$(this).parents(".element").find(".element_tytul span").css("text-decoration", "none");
 			$(this).parent().siblings().show();
 			$(this).siblings("button").show();
@@ -242,12 +248,12 @@ $(document).ready(function () {
 	$("span").on("click", ".usun_pole", function () {
 		status = $(this).attr("status");
 		if (status == "u") {
-			$(this).siblings().attr("disabled", "disabled").css("text-decoration", "line-through");
+			$(this).siblings().attr("readonly", "readonly").css("text-decoration", "line-through");
 			$(this).text("+");
 			$(this).attr("status", "p");
 			$(this).attr("tool", ".usun_pole_opis-p");
 		} else {
-			$(this).siblings().removeAttr("disabled").css("text-decoration", "none");
+			$(this).siblings().removeAttr("readonly").css("text-decoration", "none");
 			$(this).text("X");
 			$(this).attr("status", "u");
 			$(this).attr("tool", ".usun_pole_opis-u");
