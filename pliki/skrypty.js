@@ -228,6 +228,7 @@ $(document).ready(function () {
 	$(".element").on("click", ".usun_element", function () {
 		status = $(this).attr("status");
 		if (status == "u") {
+			$(this).parents(".element").find("input").attr("disabled", "disabled");
 			$(this).parents(".element").find(".element_tytul span").css("text-decoration", "line-through");
 			$(this).parent().siblings().hide();
 			$(this).siblings("button").hide();
@@ -235,6 +236,7 @@ $(document).ready(function () {
 			$(this).attr("status", "p");
 			$(this).attr("tool", ".usun_element_opis-p");
 		} else {
+			$(this).parents(".element").find("input").removeAttr("disabled");
 			$(this).parents(".element").find(".element_tytul span").css("text-decoration", "none");
 			$(this).parent().siblings().show();
 			$(this).siblings("button").show();
@@ -248,12 +250,12 @@ $(document).ready(function () {
 	$("span").on("click", ".usun_pole", function () {
 		status = $(this).attr("status");
 		if (status == "u") {
-			$(this).siblings().attr("readonly", "readonly").css("text-decoration", "line-through");
+			$(this).siblings().attr("disabled", "disabled").css("text-decoration", "line-through");
 			$(this).text("+");
 			$(this).attr("status", "p");
 			$(this).attr("tool", ".usun_pole_opis-p");
 		} else {
-			$(this).siblings().removeAttr("readonly").css("text-decoration", "none");
+			$(this).siblings().removeAttr("disabled").css("text-decoration", "none");
 			$(this).text("X");
 			$(this).attr("status", "u");
 			$(this).attr("tool", ".usun_pole_opis-u");

@@ -24,9 +24,23 @@ function test_input($data) {
 }
 
 //dane osobiste
-$_SESSION['nazwisko'] = test_input($_POST['nazwisko']);
-$_SESSION['zawod'] = test_input($_POST['zawod']);
-$_SESSION['sciezka'] = test_input($_POST['sciezka']);
+if (!empty($_POST['nazwisko'])) {
+	$_SESSION['nazwisko'] = test_input($_POST['nazwisko']);
+} else {
+	$_SESSION['nazwisko'] = NULL;
+}
+
+if (!empty($_POST['zawod'])) {
+	$_SESSION['zawod'] = test_input($_POST['zawod']);
+} else {
+	$_SESSION['zawod'] = NULL;
+}
+
+if (!empty($_POST['sciezka'])) {
+	$_SESSION['sciezka'] = test_input($_POST['sciezka']);
+} else {
+	$_SESSION['sciezka'] = NULL;
+}
 
 
 //dodawanie zdjęcia
@@ -74,87 +88,152 @@ foreach (glob($dir."*") as $file) {
 }
 
 //doswiadczenie
-$_SESSION['$ileprac'] = count($_POST['praca_od']);
-for($nrpracy=0; $nrpracy < $_SESSION['$ileprac']; $nrpracy++) {
-	$_SESSION['praca_od'][$nrpracy] = test_input($_POST['praca_od'][$nrpracy]);
-	$_SESSION['praca_do'][$nrpracy] = test_input($_POST['praca_do'][$nrpracy]);
-	$_SESSION['pracodawca'][$nrpracy] = test_input($_POST['pracodawca'][$nrpracy]);
-	$_SESSION['stanowisko'][$nrpracy] = test_input($_POST['stanowisko'][$nrpracy]);
-	$_SESSION['obowiazki'][$nrpracy] = test_input($_POST['obowiazki'][$nrpracy]);
-	$_SESSION['osiagniecia'][$nrpracy] = test_input($_POST['osiagniecia'][$nrpracy]);
+if (!empty($_POST['praca_od'])) {
+	$_SESSION['ileprac'] = count($_POST['praca_od']);
+	for($nrpracy=0; $nrpracy < $_SESSION['ileprac']; $nrpracy++) {
+		$_SESSION['praca_od'][$nrpracy] = test_input($_POST['praca_od'][$nrpracy]);
+		$_SESSION['praca_do'][$nrpracy] = test_input($_POST['praca_do'][$nrpracy]);
+		$_SESSION['pracodawca'][$nrpracy] = test_input($_POST['pracodawca'][$nrpracy]);
+		$_SESSION['stanowisko'][$nrpracy] = test_input($_POST['stanowisko'][$nrpracy]);
+		$_SESSION['obowiazki'][$nrpracy] = test_input($_POST['obowiazki'][$nrpracy]);
+		$_SESSION['osiagniecia'][$nrpracy] = test_input($_POST['osiagniecia'][$nrpracy]);
+	}
+} else {
+	$_SESSION['ileprac'] = NULL;
 }
 
 //projekty
-$_SESSION['$ileproj'] = count($_POST['proj_adres']);
-for($nrproj = 0; $nrproj < $_SESSION['$ileproj']; $nrproj++) {
-	$_SESSION['proj_adres'][$nrproj] = test_input($_POST['proj_adres'][$nrproj]);
-	$_SESSION['proj_opis'][$nrproj] = test_input($_POST['proj_opis'][$nrproj]);
+if (!empty($_POST['proj_adres'])) {
+	$_SESSION['ileproj'] = count($_POST['proj_adres']);
+	for($nrproj = 0; $nrproj < $_SESSION['ileproj']; $nrproj++) {
+		$_SESSION['proj_adres'][$nrproj] = test_input($_POST['proj_adres'][$nrproj]);
+		$_SESSION['proj_opis'][$nrproj] = test_input($_POST['proj_opis'][$nrproj]);
+	}
+} else {
+	$_SESSION['ileproj'] = NULL;
 }
 
 //umiejętności
-$_SESSION['$ileumiej'] = count($_POST['umiej_nazwa']);
-for($nrumiej = 0; $nrumiej < $_SESSION['$ileumiej']; $nrumiej++) {
-	$_SESSION['umiej_nazwa'][$nrumiej] = test_input($_POST['umiej_nazwa'][$nrumiej]);
-	$_SESSION['umiej_poziom'][$nrumiej] = test_input($_POST['umiej_poziom'][$nrumiej]);
+if (!empty($_POST['umiej_nazwa'])) {
+	$_SESSION['ileumiej'] = count($_POST['umiej_nazwa']);
+	for($nrumiej = 0; $nrumiej < $_SESSION['ileumiej']; $nrumiej++) {
+		$_SESSION['umiej_nazwa'][$nrumiej] = test_input($_POST['umiej_nazwa'][$nrumiej]);
+		$_SESSION['umiej_poziom'][$nrumiej] = test_input($_POST['umiej_poziom'][$nrumiej]);
+	}
+} else {
+	$_SESSION['ileumiej'] = NULL;
 }
 
 //kursy
-$_SESSION['$ilekurs'] = count($_POST['kurs']);
-for($nrkurs = 0; $nrkurs < $_SESSION['$ilekurs']; $nrkurs++) {
-	$_SESSION['kurs'][$nrkurs] = test_input($_POST['kurs'][$nrkurs]);
+if (!empty($_POST['kurs'])) {
+	$_SESSION['ilekurs'] = count($_POST['kurs']);
+	for($nrkurs = 0; $nrkurs < $_SESSION['ilekurs']; $nrkurs++) {
+		$_SESSION['kurs'][$nrkurs] = test_input($_POST['kurs'][$nrkurs]);
+	}
+} else {
+	$_SESSION['ilekurs'] = NULL;
 }
 
 //edukacja
-$_SESSION['$ileedu'] = count($_POST['edu_od']);
-for($nredu = 0; $nredu < $_SESSION['$ileedu']; $nredu++) {
-	$_SESSION['edu_od'][$nredu] = test_input($_POST['edu_od'][$nredu]);
-	$_SESSION['edu_do'][$nredu] = test_input($_POST['edu_do'][$nredu]);
-	$_SESSION['edu_uczelnia'][$nredu] = test_input($_POST['edu_uczelnia'][$nredu]);
-	$_SESSION['edu_kierunek'][$nredu] = test_input($_POST['edu_kierunek'][$nredu]);
+if (!empty($_POST['edu_od'])) {
+	$_SESSION['ileedu'] = count($_POST['edu_od']);
+	for($nredu = 0; $nredu < $_SESSION['ileedu']; $nredu++) {
+		$_SESSION['edu_od'][$nredu] = test_input($_POST['edu_od'][$nredu]);
+		$_SESSION['edu_do'][$nredu] = test_input($_POST['edu_do'][$nredu]);
+		$_SESSION['edu_uczelnia'][$nredu] = test_input($_POST['edu_uczelnia'][$nredu]);
+		$_SESSION['edu_kierunek'][$nredu] = test_input($_POST['edu_kierunek'][$nredu]);
+	}
+} else {
+	$_SESSION['ileedu'] = NULL;
 }
 
 //dane osobiste cd + sprawdzenie poprawności wpisania maila i adresów stron
-$_SESSION['urodziny'] = test_input($_POST['urodziny']);
-$_SESSION['obywatelstwo'] = test_input($_POST['obywatelstwo']);
-$_SESSION['ulica'] = test_input($_POST['ulica']);
-$_SESSION['miasto'] = test_input($_POST['miasto']);
-$_SESSION['kraj'] = test_input($_POST['kraj']);
-$_SESSION['telefon'] = test_input($_POST['telefon']);
+if (!empty($_POST['urodziny'])) {
+	$_SESSION['urodziny'] = test_input($_POST['urodziny']);
+} else {
+	$_SESSION['urodziny'] = NULL;
+}
 
-if(filter_var(test_input($_POST['mail']), FILTER_VALIDATE_EMAIL)) {
+if (!empty($_POST['obywatelstwo'])) {
+	$_SESSION['obywatelstwo'] = test_input($_POST['obywatelstwo']);
+} else {
+	$_SESSION['obywatelstwo'] = NULL;
+}
+
+if (!empty($_POST['ulica'])) {
+	$_SESSION['ulica'] = test_input($_POST['ulica']);
+} else {
+	$_SESSION['ulica'] = NULL;
+}
+
+if (!empty($_POST['miasto'])) {
+	$_SESSION['miasto'] = test_input($_POST['miasto']);
+} else {
+	$_SESSION['miasto'] = NULL;
+}
+
+if (!empty($_POST['kraj'])) {
+	$_SESSION['kraj'] = test_input($_POST['kraj']);
+} else {
+	$_SESSION['kraj'] = NULL;
+}
+
+if (!empty($_POST['telefon'])) {
+	$_SESSION['telefon'] = test_input($_POST['telefon']);
+} else {
+	$_SESSION['telefon'] = NULL;
+}
+
+if(!empty($_POST['mail']) && filter_var(test_input($_POST['mail']), FILTER_VALIDATE_EMAIL)) {
 	$_SESSION['mail'] = test_input($_POST['mail']);
 } else {
 	$_SESSION['mail'] = NULL;
 }
 
-if(preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",test_input($_POST['strona']))) {
+if(!empty($_POST['strona']) && preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",test_input($_POST['strona']))) {
 	$_SESSION['strona'] = test_input($_POST['strona']);
 } else {
 	$_SESSION['strona'] = NULL;
 }
 
 //języki
-$_SESSION['$ilejez'] = count($_POST['jezyk_tytul']);
-for($nrjez=0; $nrjez < $_SESSION['$ilejez']; $nrjez++) {
-	$_SESSION['jezyk_tytul'][$nrjez] = test_input($_POST['jezyk_tytul'][$nrjez]);
-	$_SESSION['jezyk_poziom'][$nrjez] = test_input($_POST['jezyk_poziom'][$nrjez]);
+if (!empty($_POST['jezyk_tytul'])) {
+	$_SESSION['ilejez'] = count($_POST['jezyk_tytul']);
+	for($nrjez=0; $nrjez < $_SESSION['ilejez']; $nrjez++) {
+		$_SESSION['jezyk_tytul'][$nrjez] = test_input($_POST['jezyk_tytul'][$nrjez]);
+		$_SESSION['jezyk_poziom'][$nrjez] = test_input($_POST['jezyk_poziom'][$nrjez]);
+	}
+} else {
+	$_SESSION['ilejez'] = NULL;
 }
 
 //portale
-$_SESSION['$ileport'] = count($_POST['portal_tytul']);
-for($nrport = 0; $nrport < $_SESSION['$ileport']; $nrport++) {
-	$_SESSION['portal_tytul'][$nrport] = test_input($_POST['portal_tytul'][$nrport]);
-	$_SESSION['portal_adres'][$nrport] = test_input($_POST['portal_adres'][$nrport]);
+if (!empty($_POST['portal_tytul'])) {
+	$_SESSION['ileport'] = count($_POST['portal_tytul']);
+	for($nrport = 0; $nrport < $_SESSION['ileport']; $nrport++) {
+		$_SESSION['portal_tytul'][$nrport] = test_input($_POST['portal_tytul'][$nrport]);
+		$_SESSION['portal_adres'][$nrport] = test_input($_POST['portal_adres'][$nrport]);
+	}
+} else {
+	$_SESSION['ileport'] = NULL;
 }
 
 //zainteresowania
-$_SESSION['$ileint'] = count($_POST['interes']);
-for($nrint = 0; $nrint < $_SESSION['$ileint']; $nrint++) {
-	$_SESSION['interes'][$nrint] = test_input($_POST['interes'][$nrint]);
+if (!empty($_POST['interes'])) {
+	$_SESSION['ileint'] = count($_POST['interes']);
+	for($nrint = 0; $nrint < $_SESSION['ileint']; $nrint++) {
+		$_SESSION['interes'][$nrint] = test_input($_POST['interes'][$nrint]);
+	}
+} else {
+	$_SESSION['ileint'] = NULL;
 }
 
 //klauzula
-$_SESSION['klauzula'] = test_input($_POST['klauzula']);
+if (!empty($_POST['klauzula'])) {
+	$_SESSION['klauzula'] = test_input($_POST['klauzula']);
+} else {
+	$_SESSION['klauzula'] = NULL;
+}
 
 ?>
 
@@ -179,14 +258,14 @@ $_SESSION['klauzula'] = test_input($_POST['klauzula']);
 		</div>
 		<div id="kolumna_lewa">
 <?php
-if($_SESSION['$ileprac'] > 0) {
+if(isset($_SESSION['ileprac'])) {
 ?>
 			<div class="element doswiadczenie">
 				<div class="element_tytul">
 					<span>Doświadczenie</span>
 				</div>
 <?php 
-for($nrpracy=0; $nrpracy < $_SESSION['$ileprac']; $nrpracy++) {
+for($nrpracy=0; $nrpracy < $_SESSION['ileprac']; $nrpracy++) {
 ?>
 				<div class="dosw_praca">
 					<div class="dosw_okres">
@@ -203,8 +282,12 @@ for($nrpracy=0; $nrpracy < $_SESSION['$ileprac']; $nrpracy++) {
 						<div class="dosw_zakrespracy">
 							<span class="dosw_zakrespracy_tytul">Obowiązki:</span>
 							<span class="dosw_obowiazki"><?php echo $_SESSION['obowiazki'][$nrpracy]; ?></span>
+<?php 
+if (!empty($_SESSION['osiagniecia'][$nrpracy])) {
+?>
 							<span class="dosw_zakrespracy_tytul">Osiągnięcia:</span>
 							<span class="dosw_osiagniecia"><?php echo $_SESSION['osiagniecia'][$nrpracy]; ?></span>
+<?php } ?>
 						</div>
 					</div>
 				</div>
@@ -212,7 +295,7 @@ for($nrpracy=0; $nrpracy < $_SESSION['$ileprac']; $nrpracy++) {
 			</div>
 <?php 
 } 
-if($_SESSION['$ileproj'] > 0) {
+if(isset($_SESSION['ileproj'])) {
 ?>
 			<div class="element projekty">
 				<div class="element_tytul">
@@ -221,7 +304,7 @@ if($_SESSION['$ileproj'] > 0) {
 				<div class="proj">
 					<ul>
 <?php
-for($nrproj = 0; $nrproj < $_SESSION['$ileproj']; $nrproj++) {
+for($nrproj = 0; $nrproj < $_SESSION['ileproj']; $nrproj++) {
 ?>
 						<li class="projekt">
 <?php
@@ -242,7 +325,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
 			</div>
 <?php 
 } 
-if($_SESSION['$ileumiej'] > 0) {
+if(isset($_SESSION['ileumiej'])) {
 ?>
 			<div class="element umiejetnosci">
 				<div class="element_tytul">
@@ -251,7 +334,7 @@ if($_SESSION['$ileumiej'] > 0) {
 				<div class="umiej">
 					<ul>
 <?php
-for($nrumiej = 0; $nrumiej < $_SESSION['$ileumiej']; $nrumiej++) {
+for($nrumiej = 0; $nrumiej < $_SESSION['ileumiej']; $nrumiej++) {
 ?>
 						<li class="umiej">
 							<span class="umiej_nazwa"><?php echo $_SESSION['umiej_nazwa'][$nrumiej]; ?></span>
@@ -274,7 +357,7 @@ for($star = 5; $star > $_SESSION['umiej_poziom'][$nrumiej]; $star--) {
 			</div>
 <?php 
 } 
-if($_SESSION['$ilekurs'] > 0) {
+if(isset($_SESSION['ilekurs'])) {
 ?>
 			<div class="element kursy">
 				<div class="element_tytul">
@@ -283,7 +366,7 @@ if($_SESSION['$ilekurs'] > 0) {
 				<div>
 					<ul>
 <?php
-for($nrkurs = 0; $nrkurs < $_SESSION['$ilekurs']; $nrkurs++) {
+for($nrkurs = 0; $nrkurs < $_SESSION['ilekurs']; $nrkurs++) {
 ?>
 						<li class="kurs"><?php echo $_SESSION['kurs'][$nrkurs]; ?></li>
 <?php } ?>
@@ -292,14 +375,14 @@ for($nrkurs = 0; $nrkurs < $_SESSION['$ilekurs']; $nrkurs++) {
 			</div>
 <?php 
 } 
-if($_SESSION['$ileedu'] > 0) {
+if(isset($_SESSION['ileedu'])) {
 ?>
 			<div class="element edukacja">
 				<div class="element_tytul">
 					<span>Edukacja</span>
 				</div>
 <?php
-for($nredu = 0; $nredu < $_SESSION['$ileedu']; $nredu++) {
+for($nredu = 0; $nredu < $_SESSION['ileedu']; $nredu++) {
 ?>
 				<div class="edu_szkola">
 					<div class="edu_okres">
@@ -380,14 +463,14 @@ if(strstr($_SESSION['strona'], "http://")) {
 			</div>
 <?php 
 }
-if($_SESSION['$ilejez'] > 0) {
+if(isset($_SESSION['ilejez'])) {
 ?>
 			<div class="element jezyki">
 				<div class="element_tytul">
 					<span>Języki</span>
 				</div>
 <?php
-for($nrjez = 0; $nrjez < $_SESSION['$ilejez']; $nrjez++) {
+for($nrjez = 0; $nrjez < $_SESSION['ilejez']; $nrjez++) {
 ?>	
 				<div class="jezyk">
 					<span class="jezyk_tytul"><?php echo $_SESSION['jezyk_tytul'][$nrjez]; ?></span>
@@ -397,14 +480,14 @@ for($nrjez = 0; $nrjez < $_SESSION['$ilejez']; $nrjez++) {
 			</div>
 <?php 
 } 
-if($_SESSION['$ileport'] > 0) {
+if(isset($_SESSION['ileport'])) {
 ?>
 			<div class="element portale">
 				<div class="element_tytul">
 					<span>Portale społecznościowe</span>
 				</div>
 <?php
-for($nrport = 0; $nrport < $_SESSION['$ileport']; $nrport++) {
+for($nrport = 0; $nrport < $_SESSION['ileport']; $nrport++) {
 ?>	
 				<div class="portal">	
 <?php
@@ -424,7 +507,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
 			</div>
 <?php 
 } 
-if($_SESSION['$ileint'] > 0) {
+if(isset($_SESSION['ileint'])) {
 ?>
 			<div class="element zainteresowania">
 				<div class="element_tytul">
@@ -433,7 +516,7 @@ if($_SESSION['$ileint'] > 0) {
 				<div>
 					<ul>
 <?php
-for($nrint = 0; $nrint < $_SESSION['$ileint']; $nrint++) {
+for($nrint = 0; $nrint < $_SESSION['ileint']; $nrint++) {
 ?>
 						<li class="interes"><?php echo $_SESSION['interes'][$nrint]; ?></li>
 <?php } ?>
