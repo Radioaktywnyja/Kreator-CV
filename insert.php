@@ -73,7 +73,7 @@ if($_FILES['zdjecie']['error'] != 4) {
 			$_SESSION['zdjecie'] = "url(".$lokalizacja.")";
 		}
 	}
-} else {
+} elseif (!isset($_SESSION['zdjecie'])) {
 	$_SESSION['zdjecie'] ="none";
 }
 
